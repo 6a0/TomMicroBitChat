@@ -1,5 +1,5 @@
 {
-    "name": "BoyneChat",
+    "name": "TomMicrobitChat",
     "description": "",
     "dependencies": {
         "core": "*",
