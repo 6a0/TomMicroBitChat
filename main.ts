@@ -1,88 +1,59 @@
 input.onButtonPressed(Button.A, function () {
     Text1 += 1
     if (Text1 == 1) {
-        basic.showString("a")
+        basic.showIcon(IconNames.Heart)
     }
     if (Text1 == 2) {
-        basic.showString("b")
+        basic.showIcon(IconNames.Happy)
     }
     if (Text1 == 3) {
-        basic.showString("c")
+        basic.showIcon(IconNames.Sad)
     }
     if (Text1 == 4) {
-        basic.showString("d")
+        basic.showIcon(IconNames.Angry)
     }
     if (Text1 == 5) {
-        basic.showString("e")
+        basic.showIcon(IconNames.Asleep)
     }
     if (Text1 == 6) {
-        basic.showString("f")
+        basic.showIcon(IconNames.Silly)
     }
     if (Text1 == 7) {
-        basic.showString("g")
+        basic.showIcon(IconNames.Fabulous)
     }
     if (Text1 == 8) {
-        basic.showString("h")
+        basic.showIcon(IconNames.Surprised)
     }
     if (Text1 == 9) {
-        basic.showString("i")
+        basic.showIcon(IconNames.EigthNote)
     }
     if (Text1 == 10) {
-        basic.showString("j")
+        basic.showIcon(IconNames.Skull)
     }
     if (Text1 == 11) {
-        basic.showString("k")
+        basic.showIcon(IconNames.Yes)
     }
     if (Text1 == 12) {
-        basic.showString("l")
+        basic.showIcon(IconNames.No)
     }
     if (Text1 == 13) {
-        basic.showString("m")
+        basic.showLeds(`
+            . # # # .
+            # . . . #
+            . . # # .
+            . . . . .
+            . . # . .
+            `)
     }
     if (Text1 == 14) {
-        basic.showString("n")
-    }
-    if (Text1 == 15) {
-        basic.showString("o")
-    }
-    if (Text1 == 16) {
-        basic.showString("p")
-    }
-    if (Text1 == 17) {
-        basic.showString("q")
-    }
-    if (Text1 == 18) {
-        basic.showString("r")
-    }
-    if (Text1 == 19) {
-        basic.showString("s")
-    }
-    if (Text1 == 20) {
-        basic.showString("t")
-    }
-    if (Text1 == 21) {
-        basic.showString("u")
-    }
-    if (Text1 == 22) {
-        basic.showString("v")
-    }
-    if (Text1 == 23) {
-        basic.showString("w")
-    }
-    if (Text1 == 24) {
-        basic.showString("x")
-    }
-    if (Text1 == 25) {
-        basic.showString("y")
-    }
-    if (Text1 == 26) {
-        basic.showString("z")
+        Text1 = 1
+        basic.showIcon(IconNames.Heart)
     }
 })
 radio.onReceivedString(function (receivedString) {
     if (receivedString == "connected") {
         basic.showIcon(IconNames.Yes)
-        basic.pause(1000)
+        basic.pause(500)
         basic.showLeds(`
             . . . . .
             # # # # #
@@ -115,8 +86,43 @@ radio.onReceivedString(function (receivedString) {
             . . # . .
             `)
         music.playMelody("G A C5 - - - - - ", 190)
-        basic.pause(1000)
-        basic.showString(receivedString)
+        basic.pause(500)
+        if (receivedString == "O1Vt55XkxF") {
+            basic.showIcon(IconNames.Heart)
+        } else if (receivedString == "2iexReSuMD") {
+            basic.showIcon(IconNames.Happy)
+        } else if (receivedString == "aH8rn9PxmT") {
+            basic.showIcon(IconNames.Sad)
+        } else if (receivedString == "fKk4YXjdH1") {
+            basic.showIcon(IconNames.Angry)
+        } else if (receivedString == "6NCnBwkRBQ") {
+            basic.showIcon(IconNames.Asleep)
+        } else if (receivedString == "Sw6ILbQUcj") {
+            basic.showIcon(IconNames.Silly)
+        } else if (receivedString == "7loUKZq9rv") {
+            basic.showIcon(IconNames.Fabulous)
+        } else if (receivedString == "2nVj8GTRIm") {
+            basic.showIcon(IconNames.Surprised)
+        } else if (receivedString == "GLeQMn7dmT") {
+            basic.showIcon(IconNames.EigthNote)
+        } else if (receivedString == "n3QZAVpdPE") {
+            basic.showIcon(IconNames.Skull)
+        } else if (receivedString == "SSk3N6pBdh") {
+            basic.showIcon(IconNames.Yes)
+        } else if (receivedString == "BqbrStClPh") {
+            basic.showIcon(IconNames.No)
+        } else if (receivedString == "YPX55sqbhU") {
+            basic.showLeds(`
+                . # # # .
+                # . . . #
+                . . # # .
+                . . . . .
+                . . # . .
+                `)
+        } else {
+            music.playMelody("D C - - - - - - ", 220)
+            basic.showString("ERR 2")
+        }
     } else {
         basic.showLeds(`
             # . . . #
@@ -125,137 +131,73 @@ radio.onReceivedString(function (receivedString) {
             . # . # .
             # . . . #
             `)
+        basic.showString("ERR 1")
         music.playMelody("C - - - - - - - ", 150)
     }
 })
 input.onButtonPressed(Button.B, function () {
     if (Text1 == 1) {
-        radio.sendString("a")
+        radio.sendString("O1Vt55XkxF")
         basic.showIcon(IconNames.Yes)
         Text1 = 0
     }
     if (Text1 == 2) {
-        radio.sendString("b")
+        radio.sendString("2iexReSuMD")
         basic.showIcon(IconNames.Yes)
         Text1 = 0
     }
     if (Text1 == 3) {
-        radio.sendString("c")
+        radio.sendString("aH8rn9PxmT")
         basic.showIcon(IconNames.Yes)
         Text1 = 0
     }
     if (Text1 == 4) {
-        radio.sendString("d")
+        radio.sendString("fKk4YXjdH1")
         basic.showIcon(IconNames.Yes)
         Text1 = 0
     }
     if (Text1 == 5) {
-        radio.sendString("e")
+        radio.sendString("6NCnBwkRBQ")
         basic.showIcon(IconNames.Yes)
         Text1 = 0
     }
     if (Text1 == 6) {
-        radio.sendString("f")
+        radio.sendString("Sw6ILbQUcj")
         basic.showIcon(IconNames.Yes)
         Text1 = 0
     }
     if (Text1 == 7) {
-        radio.sendString("g")
+        radio.sendString("7loUKZq9rv")
         basic.showIcon(IconNames.Yes)
         Text1 = 0
     }
     if (Text1 == 8) {
-        radio.sendString("h")
+        radio.sendString("2nVj8GTRIm")
         basic.showIcon(IconNames.Yes)
         Text1 = 0
     }
     if (Text1 == 9) {
-        radio.sendString("i")
+        radio.sendString("GLeQMn7dmT")
         basic.showIcon(IconNames.Yes)
         Text1 = 0
     }
     if (Text1 == 10) {
-        radio.sendString("j")
+        radio.sendString("n3QZAVpdPE")
         basic.showIcon(IconNames.Yes)
         Text1 = 0
     }
     if (Text1 == 11) {
-        radio.sendString("k")
+        radio.sendString("SSk3N6pBdh")
         basic.showIcon(IconNames.Yes)
         Text1 = 0
     }
     if (Text1 == 12) {
-        radio.sendString("l")
+        radio.sendString("BqbrStClPh")
         basic.showIcon(IconNames.Yes)
         Text1 = 0
     }
     if (Text1 == 13) {
-        radio.sendString("m")
-        basic.showIcon(IconNames.Yes)
-        Text1 = 0
-    }
-    if (Text1 == 14) {
-        radio.sendString("n")
-        basic.showIcon(IconNames.Yes)
-        Text1 = 0
-    }
-    if (Text1 == 15) {
-        radio.sendString("o")
-        basic.showIcon(IconNames.Yes)
-        Text1 = 0
-    }
-    if (Text1 == 16) {
-        radio.sendString("p")
-        basic.showIcon(IconNames.Yes)
-        Text1 = 0
-    }
-    if (Text1 == 17) {
-        radio.sendString("q")
-        basic.showIcon(IconNames.Yes)
-        Text1 = 0
-    }
-    if (Text1 == 18) {
-        radio.sendString("r")
-        basic.showIcon(IconNames.Yes)
-        Text1 = 0
-    }
-    if (Text1 == 19) {
-        radio.sendString("s")
-        basic.showIcon(IconNames.Yes)
-        Text1 = 0
-    }
-    if (Text1 == 20) {
-        radio.sendString("t")
-        basic.showIcon(IconNames.Yes)
-        Text1 = 0
-    }
-    if (Text1 == 21) {
-        radio.sendString("u")
-        basic.showIcon(IconNames.Yes)
-        Text1 = 0
-    }
-    if (Text1 == 22) {
-        radio.sendString("v")
-        basic.showIcon(IconNames.Yes)
-        Text1 = 0
-    }
-    if (Text1 == 23) {
-        radio.sendString("w")
-        basic.showIcon(IconNames.Yes)
-        Text1 = 0
-    }
-    if (Text1 == 24) {
-        radio.sendString("x")
-        basic.showIcon(IconNames.Yes)
-        Text1 = 0
-    }
-    if (Text1 == 25) {
-        radio.sendString("y")
-        basic.showIcon(IconNames.Yes)
-        Text1 = 0
-    }
-    if (Text1 == 26) {
-        radio.sendString("z")
+        radio.sendString("YPX55sqbhU")
         basic.showIcon(IconNames.Yes)
         Text1 = 0
     }
@@ -276,13 +218,15 @@ let Text1 = 0
 let disableinterferencecheck = 0
 radio.setGroup(167)
 basic.pause(100)
-basic.showLeds(`
-    . . . . .
-    . # # # .
-    . # . # .
-    . # # # .
-    . . . . .
-    `)
+if (disableinterferencecheck == 0) {
+    basic.showLeds(`
+        . . . . .
+        . # # # .
+        . # . # .
+        . # # # .
+        . . . . .
+        `)
+}
 basic.pause(10000)
 if (disableinterferencecheck == 0) {
     basic.showLeds(`
