@@ -65,6 +65,7 @@ radio.onReceivedString(function (receivedString) {
             music.playMelody("E G B C5 - - - - ", 165)
             connectindicator = 1
         } else if (receivedString == "connect") {
+            connecting = 1
             disableinterferencecheck = 1
             radio.sendString("connected")
             basic.showIcon(IconNames.Yes)
@@ -205,6 +206,7 @@ input.onButtonPressed(Button.B, function () {
     }
 })
 input.onLogoEvent(TouchButtonEvent.Pressed, function () {
+    connecting = 1
     basic.clearScreen()
     if (interferencecheck == 0) {
         radio.sendString("connect")
@@ -220,34 +222,59 @@ input.onLogoEvent(TouchButtonEvent.Pressed, function () {
 let disableinterferencecheck = 0
 let connectindicator = 0
 let Text1 = 0
+let connecting = 0
 let interferencecheck = 0
 radio.setGroup(167)
 basic.pause(100)
 interferencecheck = 1
 for (let index = 0; index < 3; index++) {
     led.plot(1, 1)
-    basic.pause(370)
+    basic.pause(185)
     led.unplot(1, 1)
     led.plot(2, 1)
     basic.pause(370)
     led.unplot(2, 1)
     led.plot(3, 1)
-    basic.pause(370)
+    basic.pause(185)
     led.unplot(3, 1)
     led.plot(3, 2)
-    basic.pause(370)
+    basic.pause(185)
     led.unplot(3, 2)
     led.plot(3, 3)
-    basic.pause(370)
+    basic.pause(185)
     led.unplot(3, 3)
     led.plot(2, 3)
-    basic.pause(370)
+    basic.pause(185)
     led.unplot(2, 3)
     led.plot(1, 3)
-    basic.pause(370)
+    basic.pause(185)
     led.unplot(1, 3)
     led.plot(1, 2)
+    basic.pause(185)
+    led.unplot(1, 2)
+    led.plot(1, 1)
+    basic.pause(185)
+    led.unplot(1, 1)
+    led.plot(2, 1)
     basic.pause(370)
+    led.unplot(2, 1)
+    led.plot(3, 1)
+    basic.pause(185)
+    led.unplot(3, 1)
+    led.plot(3, 2)
+    basic.pause(185)
+    led.unplot(3, 2)
+    led.plot(3, 3)
+    basic.pause(185)
+    led.unplot(3, 3)
+    led.plot(2, 3)
+    basic.pause(185)
+    led.unplot(2, 3)
+    led.plot(1, 3)
+    basic.pause(185)
+    led.unplot(1, 3)
+    led.plot(1, 2)
+    basic.pause(185)
     led.unplot(1, 2)
 }
 basic.clearScreen()
@@ -263,3 +290,17 @@ basic.pause(100)
 led.plot(4, 1)
 basic.pause(500)
 interferencecheck = 0
+if (connecting == 0) {
+    basic.showLeds(`
+        . . # . .
+        . # # # .
+        # . # . #
+        . . # . .
+        . . # . .
+        `)
+}
+basic.pause(9000)
+if (connecting == 0) {
+    basic.clearScreen()
+    basic.showString("PRESS LOGO")
+}
